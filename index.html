@@ -286,7 +286,7 @@ main{position:relative;z-index:1;background:var(--mist);}
         <tr><td>Ctrl+a d</td><td class="desc">Detach — leave everything running</td></tr>
         <tr><td>Ctrl+a o</td><td class="desc">Open sessionx picker (omerxx plugin)</td></tr>
         <tr><td>Ctrl+a $</td><td class="desc">Rename current session</td></tr>
-        <tr><td>Ctrl+a s</td><td class="desc">List sessions interactively</td></tr>
+        <tr><td>Ctrl+a S</td><td class="desc">List/choose sessions interactively</td></tr>
       </tbody>
     </table>
   </div>
@@ -296,12 +296,13 @@ main{position:relative;z-index:1;background:var(--mist);}
       <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
       <tbody>
         <tr><td>Ctrl+a c</td><td class="desc">New window</td></tr>
-        <tr><td>Ctrl+a ,</td><td class="desc">Rename current window</td></tr>
+        <tr><td>Ctrl+a r</td><td class="desc">Rename current window</td></tr>
         <tr><td>Ctrl+a 1-9</td><td class="desc">Switch to window by number</td></tr>
         <tr><td>Ctrl+a n</td><td class="desc">Next window</td></tr>
         <tr><td>Ctrl+a p</td><td class="desc">Previous window</td></tr>
-        <tr><td>Ctrl+a w</td><td class="desc">Visual window picker</td></tr>
-        <tr><td>Ctrl+a &</td><td class="desc">Kill current window</td></tr>
+        <tr><td>Ctrl+a w</td><td class="desc">Visual window picker (choose-tree)</td></tr>
+        <tr><td>Ctrl+a a</td><td class="desc">Switch to last window</td></tr>
+        <tr><td>Ctrl+a &</td><td class="desc">Kill current window (confirm)</td></tr>
       </tbody>
     </table>
   </div>
@@ -310,14 +311,14 @@ main{position:relative;z-index:1;background:var(--mist);}
     <table class="shortcut-table">
       <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
       <tbody>
-        <tr><td>Ctrl+a |</td><td class="desc">Split pane vertically</td></tr>
-        <tr><td>Ctrl+a -</td><td class="desc">Split pane horizontally</td></tr>
+        <tr><td>Ctrl+a v</td><td class="desc">Split pane vertically</td></tr>
+        <tr><td>Ctrl+a s</td><td class="desc">Split pane horizontally</td></tr>
         <tr><td>Ctrl+a h/j/k/l</td><td class="desc">Navigate panes (vim-style)</td></tr>
         <tr><td>Ctrl+a z</td><td class="desc">Zoom / unzoom current pane</td></tr>
-        <tr><td>Ctrl+a x</td><td class="desc">Kill current pane</td></tr>
-        <tr><td>Ctrl+a p</td><td class="desc">Open floating pane (floax)</td></tr>
-        <tr><td>Ctrl+a {</td><td class="desc">Swap pane left</td></tr>
-        <tr><td>Ctrl+a }</td><td class="desc">Swap pane right</td></tr>
+        <tr><td>Ctrl+a c</td><td class="desc">Kill current pane</td></tr>
+        <tr><td>Ctrl+a p</td><td class="desc">Previous window</td></tr>
+        <tr><td>Ctrl+a {</td><td class="desc">Swap pane up (left)</td></tr>
+        <tr><td>Ctrl+a }</td><td class="desc">Swap pane down (right)</td></tr>
       </tbody>
     </table>
   </div>
@@ -330,7 +331,7 @@ main{position:relative;z-index:1;background:var(--mist);}
       <li><span class="plugin-icon">💾</span><span class="plugin-name">tmux-resurrect</span><span class="plugin-desc">Save and restore sessions after reboot</span></li>
       <li><span class="plugin-icon">🔄</span><span class="plugin-name">tmux-continuum</span><span class="plugin-desc">Auto-saves sessions every 15 minutes</span></li>
       <li><span class="plugin-icon">🔭</span><span class="plugin-name">tmux-sessionx</span><span class="plugin-desc">Better session switcher — Ctrl+a o</span></li>
-      <li><span class="plugin-icon">🪟</span><span class="plugin-name">tmux-floax</span><span class="plugin-desc">Floating terminal overlay — Ctrl+a p</span></li>
+      <li><span class="plugin-icon">🪟</span><span class="plugin-name">tmux-floax</span><span class="plugin-desc">Floating terminal overlay (plugin-defined binding)</span></li>
       <li><span class="plugin-icon">🔗</span><span class="plugin-name">tmux-fzf-url</span><span class="plugin-desc">Pick and open URLs from terminal output</span></li>
     </ul>
   </div>
@@ -373,8 +374,9 @@ nvim .            # open file tree</div>
         <tr><td>Ctrl+d / Ctrl+u</td><td class="desc">Scroll half page down / up</td></tr>
         <tr><td>{ / }</td><td class="desc">Previous / next empty line (paragraph)</td></tr>
         <tr><td>%</td><td class="desc">Jump to matching bracket</td></tr>
+        <tr><td>H / L</td><td class="desc">Previous / next buffer (bufferline)</td></tr>
         <tr><td>gd</td><td class="desc">Go to definition</td></tr>
-        <tr><td>gr</td><td class="desc">Go to references</td></tr>
+        <tr><td>grr</td><td class="desc">Go to references</td></tr>
       </tbody>
     </table>
     <p class="sub-h">Search</p>
@@ -439,23 +441,25 @@ nvim .            # open file tree</div>
     <table class="shortcut-table">
       <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
       <tbody>
-        <tr><td>Space ff</td><td class="desc">Find files (fzf)</td></tr>
-        <tr><td>Space fg</td><td class="desc">Live grep — search text in all files</td></tr>
+        <tr><td>Space ff</td><td class="desc">Find files (root dir)</td></tr>
+        <tr><td>Space /</td><td class="desc">Grep search in all files (root dir)</td></tr>
+        <tr><td>Space sg</td><td class="desc">Grep (root dir) — search text in files</td></tr>
         <tr><td>Space fb</td><td class="desc">Find open buffers</td></tr>
         <tr><td>Space fr</td><td class="desc">Recent files</td></tr>
         <tr><td>Space e</td><td class="desc">Toggle file explorer (neo-tree)</td></tr>
-        <tr><td>Space gs</td><td class="desc">Git status</td></tr>
-        <tr><td>Space gc</td><td class="desc">Git commits</td></tr>
-        <tr><td>Space gd</td><td class="desc">Git diff</td></tr>
+        <tr><td>Space gs</td><td class="desc">Git status (Fugitive)</td></tr>
+        <tr><td>Space gl</td><td class="desc">Git commits log</td></tr>
+        <tr><td>Space gd</td><td class="desc">Git diff (files)</td></tr>
+        <tr><td>Space gg</td><td class="desc">Open Lazygit (root dir)</td></tr>
         <tr><td>Space cm</td><td class="desc">Open Mason — install LSP/tools</td></tr>
         <tr><td>Space sr</td><td class="desc">Search and replace (grug-far)</td></tr>
-        <tr><td>Space bd</td><td class="desc">Close buffer</td></tr>
+        <tr><td>Space bd</td><td class="desc">Delete (close) buffer</td></tr>
         <tr><td>Space ql</td><td class="desc">Restore last session</td></tr>
-        <tr><td>Space h</td><td class="desc">Harpoon — add file to bookmarks</td></tr>
-        <tr><td>Space 1-9</td><td class="desc">Jump to harpoon bookmark</td></tr>
-        <tr><td>Space cp</td><td class="desc">Markdown preview</td></tr>
+        <tr><td>Space H</td><td class="desc">Harpoon — add file to bookmarks</td></tr>
+        <tr><td>Space h</td><td class="desc">Harpoon quick menu</td></tr>
+        <tr><td>Space 1-9</td><td class="desc">Jump to harpoon file 1–9</td></tr>
         <tr><td>Space db</td><td class="desc">Toggle debugger breakpoint</td></tr>
-        <tr><td>Space dc</td><td class="desc">Continue debugger</td></tr>
+        <tr><td>Space dc</td><td class="desc">Run / continue debugger</td></tr>
       </tbody>
     </table>
   </div>
@@ -647,11 +651,11 @@ nvim .            # open file tree</div>
     <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
     <tbody>
       <tr><td>Ctrl+a [</td><td class="desc">Enter copy mode — scroll output like vim</td></tr>
-      <tr><td>v</td><td class="desc">Start selection (in copy mode)</td></tr>
-      <tr><td>y</td><td class="desc">Yank (copy) selection to clipboard</td></tr>
+      <tr><td>v / Space</td><td class="desc">Start visual selection (in copy mode)</td></tr>
+      <tr><td>y / Enter</td><td class="desc">Yank (copy) selection to clipboard</td></tr>
       <tr><td>q / Esc</td><td class="desc">Exit copy mode</td></tr>
       <tr><td>Ctrl+a ]</td><td class="desc">Paste from tmux buffer</td></tr>
-      <tr><td>/</td><td class="desc">Search in copy mode</td></tr>
+      <tr><td>/ or ?</td><td class="desc">Search forward / backward in copy mode</td></tr>
     </tbody>
   </table>
 
@@ -659,12 +663,12 @@ nvim .            # open file tree</div>
   <table class="shortcut-table">
     <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
     <tbody>
-      <tr><td>Ctrl+a r</td><td class="desc">Reload tmux config without restarting</td></tr>
+      <tr><td>Ctrl+a R</td><td class="desc">Reload tmux config without restarting</td></tr>
       <tr><td>Ctrl+a I</td><td class="desc">Install plugins (TPM)</td></tr>
       <tr><td>Ctrl+a U</td><td class="desc">Update plugins</td></tr>
       <tr><td>Ctrl+a :</td><td class="desc">Open tmux command prompt</td></tr>
       <tr><td>Ctrl+a ?</td><td class="desc">Show all keybindings</td></tr>
-      <tr><td>Ctrl+a t</td><td class="desc">Show clock</td></tr>
+      <tr><td>Ctrl+a K</td><td class="desc">Clear pane (send clear)</td></tr>
     </tbody>
   </table>
 
@@ -752,12 +756,13 @@ Esc          # apply to all lines</div>
     <thead><tr><th>Key</th><th>Action</th></tr></thead>
     <tbody>
       <tr><td>gd</td><td class="desc">Go to definition</td></tr>
-      <tr><td>gr</td><td class="desc">Go to references</td></tr>
+      <tr><td>grr</td><td class="desc">Go to references</td></tr>
+      <tr><td>gri</td><td class="desc">Go to implementation</td></tr>
       <tr><td>K</td><td class="desc">Show hover documentation</td></tr>
-      <tr><td>Space ca</td><td class="desc">Code actions (fix suggestions)</td></tr>
-      <tr><td>Space cr</td><td class="desc">Rename symbol everywhere</td></tr>
-      <tr><td>]d / [d</td><td class="desc">Next / previous diagnostic error</td></tr>
-      <tr><td>Space cd</td><td class="desc">Show diagnostic detail</td></tr>
+      <tr><td>gra</td><td class="desc">Code actions (fix suggestions)</td></tr>
+      <tr><td>grn</td><td class="desc">Rename symbol everywhere</td></tr>
+      <tr><td>]d / [d</td><td class="desc">Next / previous diagnostic</td></tr>
+      <tr><td>Space cd</td><td class="desc">Show line diagnostics</td></tr>
     </tbody>
   </table>
 </section>
@@ -831,8 +836,8 @@ tmux new -s work     # first time
 tmux attach          # coming back
 
 # 3. Split your workspace
-Ctrl+a |             # split vertically
-Ctrl+a -             # split horizontally
+Ctrl+a v             # split vertically
+Ctrl+a s             # split horizontally
 
 # 4. Open Neovim in main pane
 nvim .
@@ -856,7 +861,7 @@ tmux attach          # right where you left off</div>
   <div class="adv-grid">
     <div class="adv-card"><span class="adv-tag">Pro tip</span><h3>Never close tmux</h3><p>Always detach with Ctrl+a d. Your session stays alive, servers keep running, files stay open.</p></div>
     <div class="adv-card"><span class="adv-tag">Pro tip</span><h3>Name your sessions</h3><p>tmux new -s projectname keeps things organized when you have multiple projects running.</p></div>
-    <div class="adv-card"><span class="adv-tag">Pro tip</span><h3>Harpoon your files</h3><p>Space h in Neovim to mark files you switch between constantly. Space 1-9 to jump back instantly.</p></div>
+    <div class="adv-card"><span class="adv-tag">Pro tip</span><h3>Harpoon your files</h3><p>Space H in Neovim to add a file to harpoon. Space h opens the quick menu. Space 1-9 to jump instantly.</p></div>
     <div class="adv-card"><span class="adv-tag">Pro tip</span><h3>Learn motions not arrows</h3><p>The faster you stop using h/j/k/l and start using w/b/f/t/s, the faster you'll move in Neovim.</p></div>
     <div class="adv-card"><span class="adv-tag">Pro tip</span><h3>Space ff over :e</h3><p>Use Space ff to open files instead of typing :e path/to/file. Fuzzy find is always faster.</p></div>
     <div class="adv-card"><span class="adv-tag">Pro tip</span><h3>z before cd</h3><p>Once zoxide learns your directories, you'll never type a full path again. Just z proj and you're there.</p></div>
